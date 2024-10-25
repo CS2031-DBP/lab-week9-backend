@@ -25,4 +25,9 @@ public class UserAccountController {
 
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/hola")
+    public ResponseEntity<String> hola() {
+        return ResponseEntity.ok("Hola mundo");
+    }
 }

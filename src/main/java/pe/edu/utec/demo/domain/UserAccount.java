@@ -19,25 +19,29 @@ public class UserAccount implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String firstName;
 
+    @Column(nullable = false)
     private String lastName;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String email;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    private Boolean expired;
+    private Boolean expired = false;
 
-    private Boolean locked;
+    private Boolean locked = false;
 
-    private Boolean credentialsExpired;
+    private Boolean credentialsExpired = false;
 
-    private Boolean enable;
+    private Boolean enable = true;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
